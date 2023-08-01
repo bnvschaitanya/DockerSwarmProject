@@ -1,0 +1,4 @@
+#Created a 3 tier Architecture setup Docker Image and deployed on Docker swarm cluster 
+yum install docker -y
+systemctl enable docker --now 
+
