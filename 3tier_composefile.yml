@@ -1,0 +1,28 @@
+version: "3.8"
+
+networks:
+ lwnet:
+  driver: bridge
+
+services:
+ db:
+  image: mysql:latest
+  container_name: mydb1
+  networks:
+  - lwnet
+  volumes:
+  - /mycompose:/var/lib/mysql
+  environment:
+  - MYSQL_ROOT_PASSWORD=redhat
+  - MYSQL_DATABASE=mydb
+  - MYSQL_USER=kabali
+  - MYSQL_PASSWORD=redhat
+ wp:
+  image: wordpress:latest
+  container_name: mywp1
+  networks:
+  - lwnet
+  ports:
+  - 8080:80
+  depends_on:
+  - db
