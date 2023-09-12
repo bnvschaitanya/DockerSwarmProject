@@ -2,3 +2,21 @@
 yum install docker -y
 systemctl enable docker --now 
 
+docker node ls
+
+docker service create --name (Service name) (image name)docker service lscommand is used to list all servicesdocker service pscommand is used to know more detail about the service On one of the nodes,we can see the container is created Now the duty of the manager node is to monitor the container & if it does down or removed recreate it Deleting the container manually 
+
+ocker service ls
+
+docker service ps
+
+docker service inspect (service name)
+
+docker service create --name (service name)--publish 8080:80 (image name )
+
+docker service scale (Service name )=5Listing the service Now if we refresh the web page we can see the IP address is changing 
+
+docker service create --name(service name)--publish 8080:80 vimal13/apache-webserver-php
+
+
+
