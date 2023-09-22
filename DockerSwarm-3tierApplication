@@ -2,7 +2,10 @@
 yum install docker -y
 systemctl enable docker --now 
 
+docker swarm join-token manager
+
 docker node ls
+
 
 docker service create --name (Service name) (image name)
 
