@@ -13,9 +13,9 @@ docker node ls                             #Listing Swarm Nodes (Manager and Wor
 
 docker stack deploy -c 3tier-compose.yaml mystack   #Deploying Docker Compose file in Swarm Cluster
 
-docker stack ls   #Listing the deployed stack files
+docker stack ls                             #Listing the deployed stack files
 
-docker stack services mystack               #Listing the services of deploying stack services
+docker stack services mystack               #Listing the services of deployed stack files
 
 
 http://<IP_address of Any swarmNode>:8080    #Accessing it through any browser 
