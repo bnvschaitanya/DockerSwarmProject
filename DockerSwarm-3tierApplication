@@ -4,9 +4,10 @@ yum install docker -y                     #Installing Docker
 
 systemctl enable docker --now             #Enable docker Service 
 
-docker swarm init   #Creating Swarm Cluster
+docker swarm init                          #Creating Swarm Cluster
 
-docker swarm join-token manager            #Joining the Swarm Nodes
+docker swarm join-token manager            #Joining the Swarm Manager Nodes
+docker swarm join-token worker             #Joining the Swarm Worker Nodes
 
 docker node ls                             #Listing Swarm Nodes (Manager and Worker Nodes)
 
