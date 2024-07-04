@@ -1,32 +1,23 @@
-#Created a 3 tier Architecture setup Docker Image and deployed on Docker swarm cluster 
-#Create 2 swarm-cluster for wordpress and mysql database and connect wordpress application with mysql manager node name.
+#Created a 3-tier Architecture setup Docker Image and deployed on Docker swarm cluster 
 
-yum install docker -y
+yum install docker -y                     #Installing Docker
 
-systemctl enable docker --now 
+systemctl enable docker --now             #Enable docker Service 
 
-docker swarm join-token manager
+docker swarm init   #Creating Swarm Cluster
 
-docker node ls
+docker swarm join-token manager            #Joining the Swarm Nodes
 
-docker service create --name (Service name) (image name)
+docker node ls                             #Listing Swarm Nodes (Manager and Worker Nodes)
 
-docker service ps
+docker stack deploy -c 3tier-compose.yaml mystack   #Deploying Docker Compose file in Swarm Cluster
 
-docker service inspect (service name)
+docker stack ls   #Listing the deployed stack files
 
-docker service create --name (service name)--publish 8080:80 (image name )
+docker stack services mystack               #Listing the services of deploying stack services
 
-docker service scale (Service name )=3
 
-#docker service create --name(service name)--publish 8080:80 vimal13/apache-webserver-php 
-
-docker network   create --opt encrypted --driver overlay (network name)
-
-docker service create --name (service name)--publish 8080:80 --network (network name) (image name)
-
-docker stack deploy --compose-file docker-compose.yml
-
+http://<IP_address of Any swarmNode>:8080    #Accessing it through any browser 
 
 
 
